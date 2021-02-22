@@ -5,7 +5,7 @@ export const theme = {
   light: 300,
   grey100: 'hsl(0, 0%, 96%)',
   grey200: 'hsl(0, 0%, 90%)',
-  grey300: 'hsl(0, 0%, 84%)',
+  grey300: 'hsl(0, 0%, 70%)',
   black: 'hsl(0, 0%, 0%)',
   fontSize: {
     xxs: '1rem',

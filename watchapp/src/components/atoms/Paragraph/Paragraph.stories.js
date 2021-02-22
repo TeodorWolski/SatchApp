@@ -6,5 +6,4 @@ export default {
   component: Paragraph,
 };
 
-export const Primary = () => <Paragraph> Close / Save </Paragraph>;
-export const Secondary = () => <Paragraph secondary> Remove </Paragraph>;
+export const Classic = () => <Paragraph> Close / Save </Paragraph>;

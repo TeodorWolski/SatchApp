@@ -1,12 +1,15 @@
 import React from 'react';
-import Paragraph from 'components/atoms/Paragraph/Paragraph';
-import Heading from 'components/atoms/Heading/Heading';
-import Button from 'components/atoms/Button/Button';
+import TestView from 'views/TestView';
+import GlobalStyle from 'themes/GlobalStyle';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'themes/mainTheme';
 
 const Root = () => (
   <div>
-    <Button>czlowiek</Button>
-    <Heading>czlowiek</Heading>
+    <GlobalStyle />
+    <ThemeProvider theme={theme}>
+      <TestView />
+    </ThemeProvider>
   </div>
 );
 
