@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-// import magnifierIcon from 'assets/icons/magnifier.svg';
+import magnifierIcon from 'assets/icons/magnifier.svg';
 
 const Input = styled.input`
   border-radius: 50px;
@@ -15,7 +15,11 @@ const Input = styled.input`
   ${({ search }) =>
     search &&
     css`
-      ${'' /* background-image: url(${magnifierIcon}); */}
+      background-size: 15px;
+      padding: 10px 20px 10px 40px;
+      background-position: 15px;
+      background-image: url(${magnifierIcon});
+      background-repeat: no-repeat;
     `}
 `;
 

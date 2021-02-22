@@ -7,4 +7,4 @@ export default {
 };
 
 export const Classic = () => <Input placeholder="login" />;
-export const Search = () => <Input placeholder="search" Search />;
+export const Search = () => <Input placeholder="search" search />;
