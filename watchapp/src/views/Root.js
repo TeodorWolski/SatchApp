@@ -8,7 +8,7 @@ const Root = () => (
   <div>
     <GlobalStyle />
     <ThemeProvider theme={theme}>
-      <TestView />
+        <TestView />
     </ThemeProvider>
   </div>
 );
