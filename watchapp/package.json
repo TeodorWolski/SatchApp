@@ -59,7 +59,8 @@
     "husky": "^5.0.9",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
-    "storybook-addon-styled-component-theme": "^1.3.0"
+    "storybook-addon-styled-component-theme": "^1.3.0",
+    "storybook-react-router": "^1.0.8"
   },
   "husky": {
     "hooks": {
