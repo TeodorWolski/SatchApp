@@ -7,20 +7,20 @@ const Button = styled.button`
   color: black;
   text-decoration: none;
   padding: 0;
-  background: hsl(275, 81%, 69%);
+  background: ${({ theme }) => theme.saves};
   width: 220px;
   height: 47px;
   border: none;
   border-radius: 50px;
   font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 1rem;
+  font-size: 16px;
+  font-weight: 500;
   text-transform: uppercase;
 
   ${({ secondary }) =>
     secondary &&
     css`
-      background: hsl(0, 0%, 90%);
+      background: ${({ theme }) => theme.grey100};
       width: 105px;
       height: 30px;
       font-size: 10px;

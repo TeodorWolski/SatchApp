@@ -5,6 +5,7 @@ import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import LinkIcon from 'assets/icons/link.svg';
 import CopyIcon from 'assets/icons/copy.svg';
 import PropTypes from 'prop-types';
+import Button from 'components/atoms/Button/Button';
 
 const StyledWrapper = styled.div`
   min-height: 380px;
@@ -17,7 +18,7 @@ const StyledWrapper = styled.div`
 
 const InnerWrapper = styled.div`
   position: relative;
-  background-color: hsl(275, 81%, 69%);
+  background-color: ${({ theme }) => theme.saves};
   padding: 17px 30px;
 
   ::first-of-type {
@@ -65,6 +66,10 @@ const StyledCopyButton = styled.button`
   cursor: pointer;
 `;
 
+const StyledButton = styled(Button)`
+  margin-top: 145px;
+`;
+
 const Card = ({ title, content, created, link }) => (
   <StyledWrapper>
     <InnerWrapper>
@@ -78,6 +83,7 @@ const Card = ({ title, content, created, link }) => (
         pharetra sem sed vestibulum facilisis. Fusce finibus quis metus quis consectetur. In hac
         habitasse platea dictumst.
       </Paragraph>
+      <StyledButton secondary>Remove</StyledButton>
     </InnerWrapper>
   </StyledWrapper>
 );
