@@ -1,7 +1,7 @@
 export const theme = {
-  home: 'hsl(216, 18%, 61%)',
-  saves: 'hsl(216, 18%, 61%)',
-  videos: 'hsl(4, 82%, 56%)',
+  saves: '#373B59',
+  videos: '#D03737',
+  geeks: '#71DB77',
   bold: 600,
   regular: 500,
   light: 300,

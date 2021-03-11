@@ -11,6 +11,7 @@ const ButtonIcon = styled.button`
   display: block;
   background-size: 75%;
   background-position: center;
+  cursor: pointer;
 
   &.active {
     background-color: white;

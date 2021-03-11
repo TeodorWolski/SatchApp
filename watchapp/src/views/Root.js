@@ -1,16 +1,19 @@
 import React from 'react';
-import TestView from 'views/TestView';
-import GlobalStyle from 'themes/GlobalStyle';
-import { ThemeProvider } from 'styled-components';
-import { theme } from 'themes/mainTheme';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import MainTemplate from 'templates/MainTemplate';
+import { routes } from 'routes';
 
 const Root = () => (
-  <div>
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-        <TestView />
-    </ThemeProvider>
-  </div>
+  <BrowserRouter>
+    <MainTemplate>
+      <Switch>
+        <Route path={routes.home} />
+        <Route path={routes.saves} />
+        <Route path={routes.videos} />
+        <Route path={routes.geeks} />
+      </Switch>
+    </MainTemplate>
+  </BrowserRouter>
 );
 
 export default Root;
