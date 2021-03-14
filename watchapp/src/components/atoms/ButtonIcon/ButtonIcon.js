@@ -9,7 +9,7 @@ const ButtonIcon = styled.button`
   border-radius: 20px;
   border: none;
   display: block;
-  background-size: 75%;
+  background-size: 68%;
   background-position: center;
   cursor: pointer;
 
