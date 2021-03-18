@@ -9,26 +9,30 @@ import Button from 'components/atoms/Button/Button';
 
 const StyledWrapper = styled.div`
   min-height: 380px;
+  max-width: 500px;
   border-radius: 10px;
   overflow: hidden;
+  display: grid;
+  position: relative;
+  grid-template-rows: 0.25fr 1fr;
   box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
   -webkit-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
   -moz-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
 `;
 
 const InnerWrapper = styled.div`
-  position: relative;
-  background-color: ${({ theme }) => theme.saves};
   padding: 17px 30px;
+  position: relative;
+  background-color: ${({ theme, activeColor }) => theme[activeColor]};
 
-  ::first-of-type {
+  :first-of-type {
     z-index: 9999;
   }
 
   ${({ flex }) =>
     flex &&
     css`
-      background: white;
+      background-color: white;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -50,6 +54,12 @@ const StyledLinkButton = styled.a`
   cursor: pointer;
 `;
 
+const DateInfo = styled(Paragraph)`
+  margin: 0 0 5px;
+  font-weight: ${({ theme }) => theme.bold};
+  font-size: ${({ theme }) => theme.fontSize.xs};
+`;
+
 const StyledCopyButton = styled.button`
   height: 47px;
   width: 47px;
@@ -66,29 +76,28 @@ const StyledCopyButton = styled.button`
   cursor: pointer;
 `;
 
-const StyledButton = styled(Button)`
-  margin-top: 145px;
+const StyledHeading = styled(Heading)`
+  margin: 5px 0 0;
+  display: block;
 `;
 
-const Card = ({ title, content, created, link }) => (
+const Card = ({ title, content, created, link, pageType }) => (
   <StyledWrapper>
-    <InnerWrapper>
-      <Heading>Witaj</Heading>
+    <InnerWrapper activeColor={pageType}>
+      <StyledHeading>{title}</StyledHeading>
+      <DateInfo>{created}</DateInfo>
       <StyledLinkButton icon={LinkIcon} href={link} />
       <StyledCopyButton icon={CopyIcon} />
     </InnerWrapper>
     <InnerWrapper flex>
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean sed fermentum urna. Nullam
-        pharetra sem sed vestibulum facilisis. Fusce finibus quis metus quis consectetur. In hac
-        habitasse platea dictumst.
-      </Paragraph>
-      <StyledButton secondary>Remove</StyledButton>
+      <Paragraph>{content}</Paragraph>
+      <Button secondary>Remove</Button>
     </InnerWrapper>
   </StyledWrapper>
 );
 
 Card.propTypes = {
+  pageType: PropTypes.oneOf(['home', 'saves', 'videos', 'geeks']).isRequired,
   title: PropTypes.string.isRequired,
   content: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
