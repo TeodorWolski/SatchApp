@@ -86,7 +86,7 @@ const Card = ({ title, content, created, link, pageType }) => (
     <InnerWrapper activeColor={pageType}>
       <StyledHeading>{title}</StyledHeading>
       <DateInfo>{created}</DateInfo>
-      <StyledLinkButton icon={LinkIcon} href={link} />
+      <StyledLinkButton icon={LinkIcon} href={link} target="_blank" rel="noopener noreferrer" />
       <StyledCopyButton icon={CopyIcon} />
     </InnerWrapper>
     <InnerWrapper flex>

@@ -21,6 +21,7 @@ const StyledHeading = styled(Heading)`
   align-items: center;
   justify-content: center;
   font-size: ${({ theme }) => theme.fontSize.xl};
+  color: hsl(275, 100%, 49%);
 `;
 
 const StyledParagraph = styled(Paragraph)`
