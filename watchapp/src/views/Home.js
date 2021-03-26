@@ -60,8 +60,7 @@ const Home = () => (
           <li> Go to video section paste your link and watch it!</li>
         </ol>
         <StyledDevParagraph>
-          Fourth section is for developers, I wrote there some facts about this app technology I
-          have used.
+          Fourth section is for developers, I wrote there some technologies I have used.
         </StyledDevParagraph>
       </StyledParagraph>
     </UserTemplate>
