@@ -18,6 +18,14 @@ const StyledWrapper = styled.div`
   box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
   -webkit-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
   -moz-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
+
+  @media (max-width: 1024px) {
+    width: 400px;
+  }
+
+  @media (max-width: 1700px) {
+    min-width: 350px;
+  }
 `;
 
 const InnerWrapper = styled.div`

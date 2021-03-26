@@ -7,12 +7,29 @@ import Heading from 'components/atoms/Heading/Heading';
 
 const StyledGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   grid-gap: 85px;
+
+  @media (min-width: 375px) {
+    grid-template-columns: 1fr;
+    margin-left: 40px;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1535px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
 `;
 
 const StyledHeading = styled(Heading)`
   margin: 50px 0 50px 0;
+
+  @media (max-width: 1024px) {
+    text-align: center;
+    margin-left: 50px;
+  }
 `;
 
 const StyledWrapper = styled.div`
@@ -58,7 +75,7 @@ const Saves = () => (
     <StyledWrapper>
       <Input placeholder="Search" search />
       <StyledHeading big as="h1">
-        Save videos to watch later!
+        Save some videos to watch them later!
       </StyledHeading>
       <StyledGrid>
         {dummyData.map(({ title, created, link, content }) => (

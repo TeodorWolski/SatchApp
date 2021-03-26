@@ -6,14 +6,21 @@ import styled from 'styled-components';
 
 const StyledWrapper = styled.div`
   display: grid;
-  position: absolute;
-  width: 89%;
-  height: 97%;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 97vh;
   grid-template-rows: repeat(3, 1fr);
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 19px 5px rgba(0, 0, 0, 0.52);
   box-shadow: 5px 5px 19px 5px rgba(0, 0, 0, 0.52);
-  background-color: ${({ theme }) => theme.grey200};
+  background-color: white;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    max-height: 100vh;
+  }
 `;
 
 const StyledHeading = styled(Heading)`
