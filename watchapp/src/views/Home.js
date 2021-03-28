@@ -3,6 +3,8 @@ import UserTemplate from 'templates/UserTemplate';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import styled from 'styled-components';
+import SocialMediaButton from 'components/atoms/SocialMediaButton/SocialMediaButton';
+import { SocialMediaData } from 'assets/data/socialMediaData';
 
 const StyledWrapper = styled.div`
   display: grid;
@@ -41,10 +43,19 @@ const StyledParagraph = styled(Paragraph)`
 
 const StyledDevParagraph = styled(Paragraph)`
   position: relative;
-  top: 25%;
+  top: 10%;
   margin-top: 30px;
   font-weight: ${({ theme }) => theme.bold};
   font-size: ${({ theme }) => theme.fontSize.m};
+`;
+
+const InnerWrapper = styled.div`
+  display: grid;
+  position: absolute;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 75px;
+  bottom: 6%;
+  left: 37%;
 `;
 
 const Home = () => (
@@ -59,10 +70,23 @@ const Home = () => (
           <li> Save it,</li>
           <li> Go to video section paste your link and watch it!</li>
         </ol>
-        <StyledDevParagraph>
+        <StyledParagraph>
           Fourth section is for developers, I wrote there some technologies I have used.
-        </StyledDevParagraph>
+        </StyledParagraph>
+        <StyledDevParagraph>Creator: Teodor Wolski</StyledDevParagraph>
+        <StyledDevParagraph>Reach me on these socials:</StyledDevParagraph>
       </StyledParagraph>
+      <InnerWrapper>
+        {SocialMediaData.map(({ link, icon }) => (
+          <SocialMediaButton
+            as="a"
+            href={link}
+            icon={icon}
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        ))}
+      </InnerWrapper>
     </UserTemplate>
   </StyledWrapper>
 );
