@@ -6,8 +6,8 @@ import { theme } from 'themes/mainTheme';
 
 const MainTemplate = ({ children }) => (
   <>
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
     <GlobalStyle />
+    <ThemeProvider theme={theme}>{children}</ThemeProvider>
   </>
 );
 MainTemplate.propTypes = {

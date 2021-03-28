@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Heading from 'components/atoms/Heading/Heading';
 import Paragraph from 'components/atoms/Paragraph/Paragraph';
 import LinkIcon from 'assets/icons/link.svg';
-import CopyIcon from 'assets/icons/copy.svg';
+import CopyButton from 'components/molecules/CopyButton/CopyButton';
 import PropTypes from 'prop-types';
 import Button from 'components/atoms/Button/Button';
 
@@ -62,26 +62,14 @@ const StyledLinkButton = styled.a`
   cursor: pointer;
 `;
 
+const StyledCopyButton = styled(CopyButton)`
+  transform: translateY(-50%);
+`;
+
 const DateInfo = styled(Paragraph)`
   margin: 0 0 5px;
   font-weight: ${({ theme }) => theme.bold};
   font-size: ${({ theme }) => theme.fontSize.xs};
-`;
-
-const StyledCopyButton = styled.button`
-  height: 47px;
-  width: 47px;
-  border-radius: 50px;
-  background: white url(${({ icon }) => icon}) no-repeat;
-  background-position: 50%;
-  position: absolute;
-  display: block;
-  background-size: 45%;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 100px;
-  border: none;
-  cursor: pointer;
 `;
 
 const StyledHeading = styled(Heading)`
@@ -95,7 +83,7 @@ const Card = ({ title, content, created, link, pageType }) => (
       <StyledHeading>{title}</StyledHeading>
       <DateInfo>{created}</DateInfo>
       <StyledLinkButton icon={LinkIcon} href={link} target="_blank" rel="noopener noreferrer" />
-      <StyledCopyButton icon={CopyIcon} />
+      <StyledCopyButton videoLink={link} />
     </InnerWrapper>
     <InnerWrapper flex>
       <Paragraph>{content}</Paragraph>
