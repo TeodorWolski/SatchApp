@@ -3,7 +3,7 @@ import magnifierIcon from 'assets/icons/magnifier.svg';
 
 const Input = styled.input`
   border-radius: 50px;
-  border: 2px solid hsl(217, 100%, 49%);
+  border: none;
   padding: 15px 30px;
   background-color: ${({ theme }) => theme.grey100};
   font-size: ${({ theme }) => theme.fontSize.s};

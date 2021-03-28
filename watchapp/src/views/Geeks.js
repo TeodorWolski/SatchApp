@@ -12,7 +12,7 @@ const StyledGrid = styled.div`
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 50px;
   top: 25%;
-  left: 33%;
+  left: 37%;
 
   @media (min-width: 375px) {
     grid-template-columns: repeat(2, 1fr);
