@@ -19,6 +19,11 @@ const StyledWrapper = styled.div`
   left: 21%;
   right: 15%;
   margin-top: 10%;
+
+  @media (max-width: 801px) {
+    left: 24%;
+    margin-top: 25%;
+  }
 `;
 
 const StyledInput = styled(Input)`
@@ -35,6 +40,10 @@ const StyledHeading = styled(Heading)`
   padding: 0;
   left: 37%;
   top: 9%;
+
+  @media (max-width: 801px) {
+    top: 5%;
+  }
 `;
 
 const Videos = () => {
@@ -48,7 +57,7 @@ const Videos = () => {
       <StyledHeading big>Let watch &#39;s watch some videos!</StyledHeading>
       <StyledWrapper>
         <StyledInput onChange={handleChange} placeholder="Put there link to your video!" />
-        <ReactPlayer controls="true" url={videoLink} />
+        <ReactPlayer width="550 px" controls="true" url={videoLink} />
       </StyledWrapper>
     </UserTemplate>
   );

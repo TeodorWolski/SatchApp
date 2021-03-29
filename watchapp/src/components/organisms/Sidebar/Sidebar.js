@@ -27,7 +27,7 @@ const StyledList = styled.ul`
   padding: 0;
   margin-top: 10vh;
 
-  @media (max-width: 415px) {
+  @media (max-width: 801px) {
     margin-top: 3vh;
   }
 `;

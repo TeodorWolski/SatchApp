@@ -56,6 +56,18 @@ const InnerWrapper = styled.div`
   grid-gap: 75px;
   bottom: 6%;
   left: 37%;
+
+  @media (min-width: 415px) {
+    left: 22%;
+  }
+
+  @media (min-width: 1024px) {
+    left: 37%;
+  }
+
+  @media (min-width: 1635px) {
+    left: 40%;
+  }
 `;
 
 const Home = () => (
