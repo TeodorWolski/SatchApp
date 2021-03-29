@@ -26,6 +26,10 @@ const StyledList = styled.ul`
   list-style: none;
   padding: 0;
   margin-top: 10vh;
+
+  @media (max-width: 415px) {
+    margin-top: 3vh;
+  }
 `;
 
 const StyledListItem = styled(ButtonIcon)`

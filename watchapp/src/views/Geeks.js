@@ -8,29 +8,49 @@ import { photoData } from 'assets/data';
 const StyledGrid = styled.div`
   display: grid;
   position: absolute;
-  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   grid-gap: 50px;
-  top: 25%;
+  top: 20%;
   left: 37%;
 
-  @media (min-width: 375px) {
-    grid-template-columns: repeat(2, 1fr);
+  @media (min-width: 100px) {
+    grid-template-columns: 1fr;
   }
 
-  @media (min-width: 1530px) {
-    grid-template-columns: repeat(3, 1fr);
+  @media (min-width: 415px) {
+    grid-template-columns: repeat(2, 1fr);
+    left: 17%;
+  }
+
+  @media (min-width: 801px) {
+    left: 27%;
     margin-top: 25px;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1635px) {
+    left: 32%;
   }
 `;
 
 const StyledHeading = styled(Heading)`
   position: relative;
   top: 55%;
-  margin-left: 15%;
+  margin-left: 5%;
 
-  @media (min-width: 375px) {
-    margin-right: 15%;
+  @media (min-width: 100px) {
+    margin-top: 15%;
+    text-align: center;
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 415px) {
+    font-size: ${({ theme }) => theme.fontSize.xl};
+    top: 50%;
+  }
+
+  @media (min-width: 801px) {
+    right: 10%;
   }
 
   @media (min-width: 1530px) {
