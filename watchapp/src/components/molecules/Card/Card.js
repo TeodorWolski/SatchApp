@@ -6,6 +6,8 @@ import LinkIcon from 'assets/icons/link.svg';
 import CopyButton from 'components/molecules/CopyButton/CopyButton';
 import PropTypes from 'prop-types';
 import Button from 'components/atoms/Button/Button';
+import { connect } from 'react-redux';
+import { removeItem as removeItemAction } from 'redux/actions';
 
 const StyledWrapper = styled.div`
   min-height: 380px;
@@ -77,7 +79,7 @@ const StyledHeading = styled(Heading)`
   display: block;
 `;
 
-const Card = ({ title, content, created, link, pageType }) => (
+const Card = ({ title, content, created, link, pageType, removeItem, id }) => (
   <StyledWrapper>
     <InnerWrapper activeColor={pageType}>
       <StyledHeading>{title}</StyledHeading>
@@ -87,7 +89,9 @@ const Card = ({ title, content, created, link, pageType }) => (
     </InnerWrapper>
     <InnerWrapper flex>
       <Paragraph>{content}</Paragraph>
-      <Button secondary>Remove</Button>
+      <Button onClick={() => removeItem(id, pageType)} secondary>
+        Remove
+      </Button>
     </InnerWrapper>
   </StyledWrapper>
 );
@@ -98,6 +102,15 @@ Card.propTypes = {
   content: PropTypes.string.isRequired,
   created: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,
+  removeItem: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired,
 };
 
-export default Card;
+// eslint-disable-next-line arrow-body-style
+const mapDispatchToProps = (dispatch) => {
+  return {
+    removeItem: (id, savedVideos) => dispatch(removeItemAction(id, savedVideos)),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Card);

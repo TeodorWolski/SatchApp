@@ -1,7 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import UserTemplate from 'templates/UserTemplate';
 import Card from 'components/molecules/Card/Card';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import Input from 'components/atoms/Input/Input';
 import Heading from 'components/atoms/Heading/Heading';
 
@@ -37,40 +39,7 @@ const StyledWrapper = styled.div`
   padding: 25px 150px 25px 70px;
 `;
 
-const dummyData = [
-  {
-    title: 'Hello meow',
-    created: '18 may 2018',
-    link: 'https://www.youtube.com/watch?v=-QmyosHh-kU',
-    content: 'Nowy film gargamela!',
-  },
-  {
-    title: 'Hello meow',
-    created: '18 may 2018',
-    link: 'https://www.youtube.com/watch?v=-QmyosHa-kU',
-    content: 'Nowy film!',
-  },
-  {
-    title: 'Hello meow',
-    created: '18 may 2018',
-    link: 'https://www.youtube.com/watch?v=-QmyosHy-kU',
-    content: 'Nowy film gorgonzoli!',
-  },
-  {
-    title: 'Hello meow',
-    created: '18 may 2018',
-    link: 'https://www.youtube.com/watch?v=-QmyosHy-kU',
-    content: 'Nowy film gorgonzoli!',
-  },
-  {
-    title: 'Hello meow',
-    created: '18 may 2018',
-    link: 'https://www.youtube.com/watch?v=-QmyosHy-kU',
-    content: 'Nowy film gorgonzoli!',
-  },
-];
-
-const Saves = () => (
+const Saves = ({ saves }) => (
   <UserTemplate pageType="saves">
     <StyledWrapper>
       <Input placeholder="Search" search />
@@ -78,12 +47,37 @@ const Saves = () => (
         Save some videos to watch them later!
       </StyledHeading>
       <StyledGrid>
-        {dummyData.map(({ title, created, link, content }) => (
-          <Card pageType="saves" link={link} title={title} created={created} content={content} />
+        {saves.map(({ title, created, link, content, id }) => (
+          <Card
+            pageType="saves"
+            link={link}
+            title={title}
+            created={created}
+            content={content}
+            id={id}
+            key={id}
+          />
         ))}
       </StyledGrid>
     </StyledWrapper>
   </UserTemplate>
 );
 
-export default Saves;
+Saves.propTypes = {
+  saves: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      content: PropTypes.string.isRequired,
+      created: PropTypes.string.isRequired,
+    }),
+  ),
+};
+
+Saves.defaultProps = {
+  saves: [],
+};
+
+const mapStateToProps = ({ saves }) => ({ saves });
+
+export default connect(mapStateToProps)(Saves);
