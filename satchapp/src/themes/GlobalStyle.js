@@ -10,6 +10,7 @@ html {
     font-size: 62.5%;
 }
 body {
+    overflow-x: hidden;
     padding-left: 150px;
     font-size: 1.6rem;
     font-family: "Montserrat", sans-serif;
