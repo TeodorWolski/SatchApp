@@ -106,6 +106,7 @@ NewItemBar.propTypes = {
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
   // id: PropTypes.number.isRequired,
+  // itemContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

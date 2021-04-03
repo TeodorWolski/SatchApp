@@ -49,13 +49,13 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const NewItemBar = ({ isVisible, handleClose, addItem }) => (
+const NewItemBar = ({ isVisible, handleClose, addItem, itemContent }) => (
   <StyledWrapper handleClose={handleClose} isVisible={isVisible}>
     <Heading big>Save your video!</Heading>
     <Formik
       initialValues={{ title: '', link: '', content: '', created: '' }}
-      onSubmit={(values) => {
-        addItem(values);
+      onSubmit={() => {
+        addItem(itemContent);
         handleClose();
       }}
     >
@@ -106,6 +106,7 @@ NewItemBar.propTypes = {
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
   // id: PropTypes.number.isRequired,
+  itemContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

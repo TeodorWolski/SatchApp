@@ -89,7 +89,7 @@ const Card = ({ title, content, created, link, pageType, removeItem, id }) => (
     </InnerWrapper>
     <InnerWrapper flex>
       <Paragraph>{content}</Paragraph>
-      <Button onClick={() => removeItem(id)} secondary>
+      <Button onClick={() => removeItem(id, pageType)} secondary>
         Remove
       </Button>
     </InnerWrapper>
@@ -107,7 +107,7 @@ Card.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  removeItem: (id) => dispatch(removeItemAction(id)),
+  removeItem: (id, savedVideos) => dispatch(removeItemAction(id, savedVideos)),
 });
 
 export default connect(null, mapDispatchToProps)(Card);

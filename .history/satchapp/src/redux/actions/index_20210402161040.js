@@ -1,6 +1,7 @@
-export const removeItem = (id) => ({
+export const removeItem = (id, savedVideos) => ({
   type: 'REMOVE_ITEM',
   payload: {
+    savedVideos,
     id,
   },
 });
@@ -11,8 +12,10 @@ export const addItem = (itemContent) => {
   return {
     type: 'ADD_ITEM',
     payload: {
-      id: getId(),
-      ...itemContent,
+      item: {
+        id: getId(),
+        ...itemContent,
+      },
     },
   };
 };

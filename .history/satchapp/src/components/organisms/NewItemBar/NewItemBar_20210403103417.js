@@ -49,7 +49,7 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const NewItemBar = ({ isVisible, handleClose, addItem }) => (
+const NewItemBar = ({ isVisible, handleClose, addItem, id, itemContent }) => (
   <StyledWrapper handleClose={handleClose} isVisible={isVisible}>
     <Heading big>Save your video!</Heading>
     <Formik
@@ -101,15 +101,16 @@ const NewItemBar = ({ isVisible, handleClose, addItem }) => (
   </StyledWrapper>
 );
 
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (id, itemContent) => dispatch(addItemAction(id, itemContent)),
+});
+
+export default connect(null, mapDispatchToProps)(NewItemBar);
+
 NewItemBar.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
-  // id: PropTypes.number.isRequired,
+  id: PropTypes.number.isRequired,
+  itemContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (itemContent) => dispatch(addItemAction(itemContent)),
-});
-
-export default connect(null, mapDispatchToProps)(NewItemBar);

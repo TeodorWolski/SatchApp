@@ -54,8 +54,8 @@ const NewItemBar = ({ isVisible, handleClose, addItem }) => (
     <Heading big>Save your video!</Heading>
     <Formik
       initialValues={{ title: '', link: '', content: '', created: '' }}
-      onSubmit={(values) => {
-        addItem(values);
+      onSubmit={(itemContent) => {
+        addItem(itemContent);
         handleClose();
       }}
     >
@@ -106,6 +106,7 @@ NewItemBar.propTypes = {
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
   // id: PropTypes.number.isRequired,
+  // itemContent: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

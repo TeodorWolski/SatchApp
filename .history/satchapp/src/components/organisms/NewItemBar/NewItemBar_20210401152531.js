@@ -1,9 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
-import Heading from 'components/atoms/Heading/Heading';
-import PropTypes from 'prop-types';
-import Input from 'components/atoms/Input/Input';
-import Button from 'components/atoms/Button/Button';
+import React from "react";
+import styled from "styled-components";
+import Heading from "components/atoms/Heading/Heading";
+import PropTypes from "prop-types";
+import Input from "components/atoms/Input/Input";
+import Button from "components/atoms/Button/Button";
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme }) => theme.saves};
@@ -19,7 +19,7 @@ const StyledWrapper = styled.div`
   top: 0;
   display: flex;
   flex-direction: column;
-  transform: translate(${({ isVisible }) => (isVisible ? '0' : '100%')});
+  transform: translate(${({ isVisible }) => (isVisible ? "0" : "100%")});
   transition: transform 0.3s ease-in-out;
 `;
 

@@ -48,7 +48,7 @@ const reducer = (state = initialState, action) => {
     case 'REMOVE_ITEM':
       return {
         ...state,
-        saves: state.saves.filter((item) => item.id !== action.payload.id),
+        saves: state.saves.filter(),
       };
     default:
       return state;

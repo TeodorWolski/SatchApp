@@ -49,67 +49,27 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
-const NewItemBar = ({ isVisible, handleClose, addItem }) => (
+const NewItemBar = ({ isVisible, savedVideos, handleClose, addItem }) => (
   <StyledWrapper handleClose={handleClose} isVisible={isVisible}>
     <Heading big>Save your video!</Heading>
-    <Formik
-      initialValues={{ title: '', link: '', content: '', created: '' }}
-      onSubmit={(values) => {
-        addItem(values);
-        handleClose();
-      }}
-    >
-      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
-        <StyledForm as={Form}>
-          <StyledInput
-            placeholder="title"
-            type="text"
-            name="title"
-            onChange={handleChange}
-            onBlur={handleBlur}
-            value={values.title}
-          />
-          <StyledInput
-            placeholder="date"
-            type="text"
-            name="created"
-            value={values.created}
-            onBlur={handleBlur}
-            onChange={handleChange}
-          />
-          <StyledInput
-            placeholder="link"
-            type="text"
-            name="link"
-            value={values.link}
-            onBlur={handleBlur}
-            onChange={handleChange}
-          />
-          <StyledTextArea
-            type="text"
-            value={values.content}
-            onBlur={handleBlur}
-            onChange={handleChange}
-            placeholder="description"
-            name="content"
-            as="textarea"
-          />
-          <StyledButton type="submit">Save!</StyledButton>
-        </StyledForm>
-      )}
-    </Formik>
+    <StyledInput placeholder="title" />
+    <StyledInput placeholder="link" />
+    <StyledTextArea placeholder="description" as="textarea" />
+    <StyledButton onClick={() => addItem(id, { title: 'fre', content: 'description' })}>
+      Save!
+    </StyledButton>
   </StyledWrapper>
 );
+
+const mapDispatchToProps = (dispatch) => ({
+  addItem: (id, itemContent) => dispatch(addItemAction(id, itemContent)),
+});
+
+export default connect(null, mapDispatchToProps)(NewItemBar);
 
 NewItemBar.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
-  // id: PropTypes.number.isRequired,
+  savedVideos: PropTypes.string.isRequired,
 };
-
-const mapDispatchToProps = (dispatch) => ({
-  addItem: (itemContent) => dispatch(addItemAction(itemContent)),
-});
-
-export default connect(null, mapDispatchToProps)(NewItemBar);

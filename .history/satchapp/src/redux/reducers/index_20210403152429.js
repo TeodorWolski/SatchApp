@@ -48,15 +48,13 @@ const reducer = (state = initialState, action) => {
     case 'REMOVE_ITEM':
       return {
         ...state,
-        saves: state.saves.filter((item) => item.id !== action.payload.id),
+        [action.payload.savedVideos]: [
+          ...state[action.payload.savedVideos].filter((item) => item.id !== action.payload.id),
+        ],
       };
     default:
       return state;
   }
 };
-
-// [action.payload.savedVideos]: [
-//   ...state[action.payload.savedVideos].filter((item) => item.id !== action.payload.id),
-// ],
 
 export default reducer;
