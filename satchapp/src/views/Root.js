@@ -8,6 +8,8 @@ import Saves from 'views/Saves';
 import Home from 'views/Home';
 import Videos from 'views/Videos';
 import Geeks from 'views/Geeks';
+import LoginPage from 'views/LoginPage';
+import RegisterPage from 'views/RegisterPage';
 
 const Root = () => (
   <Provider store={store}>
@@ -15,6 +17,8 @@ const Root = () => (
       <MainTemplate>
         <Switch>
           <Route exact path={routes.load} render={() => <Redirect to={routes.home} />} />
+          <Route exact path={routes.login} component={LoginPage} />
+          <Route exact path={routes.register} component={RegisterPage} />
           <Route exact path={routes.home} component={Home} />
           <Route exact path={routes.saves} component={Saves} />
           <Route exact path={routes.videos} component={Videos} />

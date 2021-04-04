@@ -7,7 +7,7 @@ import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import { addItem as addItemAction } from 'redux/actions';
 import * as Yup from 'yup';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme }) => theme.saves};
@@ -32,6 +32,7 @@ const StyledTextArea = styled(Input)`
   border-radius: 20px;
   height: 30%;
   font-family: Montserrat;
+  resize: none;
 `;
 
 const StyledInput = styled(Input)`
@@ -41,8 +42,9 @@ const StyledInput = styled(Input)`
 
 const StyledButton = styled(Button)`
   position: relative;
-  top: 13%;
-  bottom: 0;
+  top: 30px;
+  height: 68px;
+  margin-bottom: 0;
 `;
 
 const StyledForm = styled(Form)`
@@ -131,7 +133,6 @@ NewItemBar.propTypes = {
   isVisible: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   addItem: PropTypes.func.isRequired,
-  // id: PropTypes.number.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({

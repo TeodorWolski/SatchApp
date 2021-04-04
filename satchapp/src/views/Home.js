@@ -10,7 +10,7 @@ const StyledWrapper = styled.div`
   display: grid;
   position: relative;
   width: 100%;
-  margin: 0;
+  margin: 15px 0 0 0;
   padding: 0;
   height: 97vh;
   grid-template-rows: repeat(3, 1fr);
@@ -71,8 +71,8 @@ const InnerWrapper = styled.div`
 `;
 
 const Home = () => (
-  <StyledWrapper>
-    <UserTemplate pageType="home">
+  <UserTemplate pageType="home">
+    <StyledWrapper>
       <StyledHeading>Welcome to SatchApp!</StyledHeading>
       <StyledParagraph>
         SatchApp is made for people who want to save something and watch it later. Using this app is
@@ -100,8 +100,8 @@ const Home = () => (
           />
         ))}
       </InnerWrapper>
-    </UserTemplate>
-  </StyledWrapper>
+    </StyledWrapper>
+  </UserTemplate>
 );
 
 export default Home;
