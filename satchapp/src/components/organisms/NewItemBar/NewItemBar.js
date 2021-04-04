@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 import { addItem as addItemAction } from 'redux/actions';
+import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 
 const StyledWrapper = styled.div`
@@ -49,19 +50,34 @@ const StyledForm = styled(Form)`
   flex-direction: column;
 `;
 
+const formValidation = Yup.object().shape({
+  title: Yup.string().min(3, 'This title is to short!').required('Title is required'),
+  link: Yup.string().min(5, 'Invalid link').required('Link is required'),
+  created: Yup.string().min(2, 'The date is too short!'),
+});
+
+const StyledErrorMessage = styled.div`
+  font-weight: bold;
+  color: red;
+  margin-left: 20px;
+  margin-top: 20px;
+`;
+
 const NewItemBar = ({ isVisible, handleClose, addItem }) => (
   <StyledWrapper handleClose={handleClose} isVisible={isVisible}>
     <Heading big>Save your video!</Heading>
     <Formik
+      validationSchema={formValidation}
       initialValues={{ title: '', link: '', content: '', created: '' }}
       onSubmit={(values) => {
         addItem(values);
         handleClose();
       }}
     >
-      {({ values, errors, touched, handleChange, handleBlur, handleSubmit, isSubmitting }) => (
+      {({ values, errors, touched, handleChange, handleBlur }) => (
         <StyledForm as={Form}>
           <StyledInput
+            as={Field}
             placeholder="title"
             type="text"
             name="title"
@@ -69,6 +85,9 @@ const NewItemBar = ({ isVisible, handleClose, addItem }) => (
             onBlur={handleBlur}
             value={values.title}
           />
+          {errors.title && touched.title ? (
+            <StyledErrorMessage>{errors.title}</StyledErrorMessage>
+          ) : null}
           <StyledInput
             placeholder="date"
             type="text"
@@ -77,7 +96,11 @@ const NewItemBar = ({ isVisible, handleClose, addItem }) => (
             onBlur={handleBlur}
             onChange={handleChange}
           />
+          {errors.created && touched.created ? (
+            <StyledErrorMessage>{errors.created}</StyledErrorMessage>
+          ) : null}
           <StyledInput
+            as={Field}
             placeholder="link"
             type="text"
             name="link"
@@ -85,6 +108,9 @@ const NewItemBar = ({ isVisible, handleClose, addItem }) => (
             onBlur={handleBlur}
             onChange={handleChange}
           />
+          {errors.link && touched.link ? (
+            <StyledErrorMessage>{errors.link}</StyledErrorMessage>
+          ) : null}
           <StyledTextArea
             type="text"
             value={values.content}
