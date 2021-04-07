@@ -1,4 +1,4 @@
-# SatchMeApp
+# SatchApp
 An app where you can save a link and watch youtube video
 
 Inspiration in making UI: @frontendjoe & @helloroman
