@@ -8,6 +8,7 @@ import Button from 'components/atoms/Button/Button';
 import { addItem as addItemAction } from 'redux/actions';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
+import firebase from 'firebase';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme }) => theme.saves};
