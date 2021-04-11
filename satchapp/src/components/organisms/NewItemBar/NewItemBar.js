@@ -8,7 +8,6 @@ import Button from 'components/atoms/Button/Button';
 import { addItem as addItemAction } from 'redux/actions';
 import * as Yup from 'yup';
 import { Formik, Form, Field } from 'formik';
-import firebase from 'firebase';
 
 const StyledWrapper = styled.div`
   border-left: 10px solid ${({ theme }) => theme.saves};
@@ -26,6 +25,10 @@ const StyledWrapper = styled.div`
   flex-direction: column;
   transform: translate(${({ isVisible }) => (isVisible ? '0' : '100%')});
   transition: transform 0.3s ease-in-out;
+
+  @media (max-width: 801px) {
+    width: 630px;
+  }
 `;
 
 const StyledTextArea = styled(Input)`

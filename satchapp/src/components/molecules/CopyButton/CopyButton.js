@@ -25,11 +25,13 @@ const CopyButton = ({ videoLink }) => {
   const handleCopy = () => {
     copyChange(true);
   };
-
   return (
-    <CopyToClipboard text={videoLink} onCopy={handleCopy}>
-      <StyledButton icon={CopyIcon} />
-    </CopyToClipboard>
+    <>
+      {copied === true && alert('Copied to the clipboard!')}
+      <CopyToClipboard text={videoLink} onCopy={handleCopy}>
+        <StyledButton icon={CopyIcon} />
+      </CopyToClipboard>
+    </>
   );
 };
 

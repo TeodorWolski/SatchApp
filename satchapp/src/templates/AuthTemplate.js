@@ -25,9 +25,16 @@ const StyledAuthCard = styled.div`
   justify-content: center;
 `;
 
+const StyledHeading = styled(Heading)`
+  @media (max-width: 801px) {
+    margin-left: 30px;
+    margin-bottom: 30px;
+  }
+`;
+
 const AuthTemplate = ({ children, pageType }) => (
   <StyledWrapper activeColor={pageType}>
-    <Heading big>Save your video and watch it later!</Heading>
+    <StyledHeading big>Save your video and watch it later!</StyledHeading>
     <StyledAuthCard>{children}</StyledAuthCard>
   </StyledWrapper>
 );
