@@ -4,7 +4,6 @@ import UserTemplate from 'templates/UserTemplate';
 import Card from 'components/molecules/Card/Card';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import Input from 'components/atoms/Input/Input';
 import plusIcon from 'assets/icons/plus.svg';
 import ButtonIcon from 'components/atoms/ButtonIcon/ButtonIcon';
 import Heading from 'components/atoms/Heading/Heading';
@@ -62,7 +61,6 @@ const Saves = ({ saves }) => {
   return (
     <UserTemplate pageType="saves">
       <StyledWrapper>
-        <Input placeholder="Search" search />
         <StyledHeading big as="h1">
           Save some videos to watch them later!
         </StyledHeading>

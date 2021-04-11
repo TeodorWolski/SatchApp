@@ -6,4 +6,5 @@ export const routes = {
   saves: '/saves',
   videos: '/videos',
   geeks: '/forgeeks',
+  settings: '/settings',
 };

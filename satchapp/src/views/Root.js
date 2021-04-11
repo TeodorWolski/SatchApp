@@ -10,6 +10,7 @@ import Videos from 'views/Videos';
 import Geeks from 'views/Geeks';
 import LoginPage from 'views/LoginPage';
 import RegisterPage from 'views/RegisterPage';
+import Settings from 'views/Settings';
 import { AuthProvider } from 'context/AuthContext';
 
 const Root = () => (
@@ -25,6 +26,7 @@ const Root = () => (
             <Route exact path={routes.saves} component={Saves} />
             <Route exact path={routes.videos} component={Videos} />
             <Route exact path={routes.geeks} component={Geeks} />
+            <Route exact path={routes.settings} component={Settings} />
           </Switch>
         </MainTemplate>
       </BrowserRouter>

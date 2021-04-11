@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import * as Yup from 'yup';
 import Heading from 'components/atoms/Heading/Heading';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 import AuthTemplate from 'templates/AuthTemplate';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
+import { useAuth } from 'context/AuthContext';
+import { StyledErrorMessage } from './RegisterPage';
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -36,43 +37,64 @@ const StyledButton = styled(Button)`
   background-color: ${({ theme }) => theme.home};
 `;
 
-const RegisterPage = () => (
-  <AuthTemplate pageType="home">
-    <Formik
-      initialValues={{ username: '', password: '' }}
-      onSubmit={({ username, password }) => {
-        console.log('hello');
-      }}
-    >
-      {({ handleChange, handleBlur, values }) => (
-        <>
-          <Heading>Log in!</Heading>
-          <StyledForm>
-            <StyledInput
-              type="email"
-              name="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-            />
-            <StyledInput
-              type="password"
-              name="password"
-              placeholder="password"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.title}
-            />
-            <StyledButton activecolor="notes" type="submit">
-              log in
-            </StyledButton>
-          </StyledForm>
-          <StyledLink to={routes.register}>Need an account?</StyledLink>
-        </>
-      )}
-    </Formik>
-  </AuthTemplate>
-);
+const LoginPage = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const { login } = useAuth();
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
-export default RegisterPage;
+  // eslint-disable-next-line consistent-return
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      setError('');
+      setLoading(true);
+      await login(emailRef.current.value, passwordRef.current.value);
+      history.push(routes.home);
+    } catch {
+      setError('Failed to sign in!');
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <AuthTemplate pageType="home">
+      <Formik>
+        {({ handleChange, handleBlur }) => (
+          <>
+            <Heading>Log in!</Heading>
+            {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+            <StyledForm onSubmit={handleSubmit}>
+              <StyledInput
+                type="email"
+                placeholder="E-mail"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                ref={emailRef}
+                required
+              />
+              <StyledInput
+                type="password"
+                placeholder="password"
+                onChange={handleChange}
+                onBlur={handleBlur}
+                ref={passwordRef}
+                required
+              />
+              <StyledButton activecolor="notes" type="submit">
+                Log in
+              </StyledButton>
+            </StyledForm>
+            <StyledLink to={routes.register}>Need an account?</StyledLink>
+          </>
+        )}
+      </Formik>
+    </AuthTemplate>
+  );
+};
+
+export default LoginPage;

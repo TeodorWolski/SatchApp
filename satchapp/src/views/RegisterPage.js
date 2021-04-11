@@ -1,13 +1,12 @@
 import React, { useRef, useState } from 'react';
 import styled from 'styled-components';
-import * as Yup from 'yup';
 import Heading from 'components/atoms/Heading/Heading';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { routes } from 'routes';
 import AuthTemplate from 'templates/AuthTemplate';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form } from 'formik';
 import { useAuth } from 'context/AuthContext';
 
 const StyledForm = styled(Form)`
@@ -33,7 +32,7 @@ const StyledLink = styled(Link)`
   margin: 20px 0 50px;
 `;
 
-const StyledErrorMessage = styled.div`
+export const StyledErrorMessage = styled.div`
   width: 250px;
   height: 35px;
   border-radius: 25px;
@@ -53,6 +52,7 @@ const RegisterPage = () => {
   const { signUp } = useAuth();
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const history = useHistory();
 
   // eslint-disable-next-line consistent-return
   const handleSubmit = async (event) => {
@@ -66,6 +66,7 @@ const RegisterPage = () => {
       setError('');
       setLoading(true);
       await signUp(emailRef.current.value, passwordRef.current.value);
+      history.push(routes.home);
     } catch {
       setError('Failed to create an account!');
     }
@@ -109,7 +110,7 @@ const RegisterPage = () => {
                 register
               </Button>
             </StyledForm>
-            <StyledLink to={routes.login}>I want to log in!</StyledLink>
+            <StyledLink to={routes.login}>Already have an account?</StyledLink>
           </>
         )}
       </Formik>
