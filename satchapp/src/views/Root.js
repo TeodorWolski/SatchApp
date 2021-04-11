@@ -2,6 +2,7 @@ import React from 'react';
 import { Switch, BrowserRouter, Route, Redirect } from 'react-router-dom';
 import MainTemplate from 'templates/MainTemplate';
 import { routes } from 'routes';
+import PrivateRoute from 'routes/PrivateRoute';
 import { Provider } from 'react-redux';
 import store from 'redux/store';
 import Saves from 'views/Saves';
@@ -19,14 +20,14 @@ const Root = () => (
       <BrowserRouter>
         <MainTemplate>
           <Switch>
-            <Route exact path={routes.load} render={() => <Redirect to={routes.home} />} />
+            <PrivateRoute exact path={routes.load} render={() => <Redirect to={routes.login} />} />
             <Route exact path={routes.login} component={LoginPage} />
             <Route exact path={routes.register} component={RegisterPage} />
-            <Route exact path={routes.home} component={Home} />
-            <Route exact path={routes.saves} component={Saves} />
-            <Route exact path={routes.videos} component={Videos} />
-            <Route exact path={routes.geeks} component={Geeks} />
-            <Route exact path={routes.settings} component={Settings} />
+            <PrivateRoute exact path={routes.home} component={Home} />
+            <PrivateRoute exact path={routes.saves} component={Saves} />
+            <PrivateRoute exact path={routes.videos} component={Videos} />
+            <PrivateRoute exact path={routes.geeks} component={Geeks} />
+            <PrivateRoute exact path={routes.settings} component={Settings} />
           </Switch>
         </MainTemplate>
       </BrowserRouter>
