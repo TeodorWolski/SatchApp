@@ -16,13 +16,13 @@ import { AuthProvider } from 'context/AuthContext';
 
 const Root = () => (
   <Provider store={store}>
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <MainTemplate>
           <Switch>
-            <PrivateRoute exact path={routes.load} render={() => <Redirect to={routes.login} />} />
-            <Route exact path={routes.login} component={LoginPage} />
-            <Route exact path={routes.register} component={RegisterPage} />
+            <PrivateRoute exact path={routes.load} />
+            <Route path={routes.login} component={LoginPage} />
+            <Route path={routes.register} component={RegisterPage} />
             <PrivateRoute exact path={routes.home} component={Home} />
             <PrivateRoute exact path={routes.saves} component={Saves} />
             <PrivateRoute exact path={routes.videos} component={Videos} />
@@ -30,8 +30,8 @@ const Root = () => (
             <PrivateRoute exact path={routes.settings} component={Settings} />
           </Switch>
         </MainTemplate>
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   </Provider>
 );
 

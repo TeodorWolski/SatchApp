@@ -25,7 +25,7 @@ export const photoData = [
   },
   {
     photo:
-      'https://yt3.ggpht.com/ytc/AAUvwnjOqSual8KFl4JkdqobEJPsqX70GGB3m22b2P1QQg=s900-c-k-c0x00ffffff-no-rj',
-    link: 'https://storybook.js.org/',
+      'https://www.gstatic.com/devrel-devsite/prod/v361636fe9adc09a35d4071cab3bc6a613653d01c6fde907d9b5c606946d81263/firebase/images/touchicon-180.png',
+    link: 'https://firebase.google.com',
   },
 ];

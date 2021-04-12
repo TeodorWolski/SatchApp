@@ -85,7 +85,7 @@ const LoginPage = () => {
                 ref={passwordRef}
                 required
               />
-              <StyledButton activecolor="notes" type="submit">
+              <StyledButton disabled={loading} type="submit">
                 Log in
               </StyledButton>
             </StyledForm>
