@@ -1,7 +1,8 @@
 export const routes = {
-  home: '/home',
   load: '/',
+  home: '/home',
   register: '/register',
+  forgotPassword: '/forgot-password',
   login: '/login',
   saves: '/saves',
   videos: '/videos',

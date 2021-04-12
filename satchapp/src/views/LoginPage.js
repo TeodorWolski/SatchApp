@@ -30,7 +30,7 @@ const StyledLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSize.xs};
   color: black;
   text-transform: uppercase;
-  margin: 20px 0 50px;
+  margin: 20px 0 0;
 `;
 
 const StyledButton = styled(Button)`
@@ -90,6 +90,7 @@ const LoginPage = () => {
               </StyledButton>
             </StyledForm>
             <StyledLink to={routes.register}>Need an account?</StyledLink>
+            <StyledLink to={routes.forgotPassword}>Forgot your password?</StyledLink>
           </>
         )}
       </Formik>

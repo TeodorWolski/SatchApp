@@ -3,6 +3,7 @@ export const theme = {
   saves: 'hsl(217, 100%, 49%)',
   videos: '#D03737',
   geeks: '#71DB77',
+  settings: 'hsl(55, 100%, 73%)',
   bold: 600,
   regular: 500,
   light: 300,

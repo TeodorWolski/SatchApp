@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import store from 'redux/store';
 import Saves from 'views/Saves';
 import Home from 'views/Home';
+import ForgotPasswordPage from 'views/ForgotPasswordPage';
 import Videos from 'views/Videos';
 import Geeks from 'views/Geeks';
 import LoginPage from 'views/LoginPage';
@@ -23,6 +24,7 @@ const Root = () => (
             <PrivateRoute exact path={routes.load} />
             <Route path={routes.login} component={LoginPage} />
             <Route path={routes.register} component={RegisterPage} />
+            <Route path={routes.forgotPassword} component={ForgotPasswordPage} />
             <PrivateRoute exact path={routes.home} component={Home} />
             <PrivateRoute exact path={routes.saves} component={Saves} />
             <PrivateRoute exact path={routes.videos} component={Videos} />
