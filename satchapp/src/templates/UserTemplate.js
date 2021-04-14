@@ -16,7 +16,7 @@ const UserTemplate = ({ children, pageType }) => (
 
 UserTemplate.propTypes = {
   children: PropTypes.arrayOf(PropTypes.object).isRequired,
-  pageType: PropTypes.oneOf(['home', 'saves', 'videos', 'geeks']).isRequired,
+  pageType: PropTypes.oneOf(['home', 'saves', 'videos', 'geeks', 'settings']).isRequired,
 };
 
 export default UserTemplate;

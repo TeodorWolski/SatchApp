@@ -8,6 +8,7 @@ import { routes } from 'routes';
 import AuthTemplate from 'templates/AuthTemplate';
 import { Formik, Form } from 'formik';
 import { useAuth } from 'context/AuthContext';
+import Message from 'components/atoms/Message/Message';
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -30,19 +31,6 @@ const StyledLink = styled(Link)`
   color: black;
   text-transform: uppercase;
   margin: 20px 0 50px;
-`;
-
-export const StyledErrorMessage = styled.div`
-  width: 250px;
-  height: 35px;
-  border-radius: 25px;
-  background-color: hsl(0, 100%, 81%);
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  bottom: 24%;
-  color: red;
 `;
 
 const RegisterPage = () => {
@@ -80,7 +68,7 @@ const RegisterPage = () => {
         {({ handleChange, handleBlur }) => (
           <>
             <Heading>Sign up!</Heading>
-            {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+            {error && <Message>{error}</Message>}
             <StyledForm onSubmit={handleSubmit}>
               <StyledInput
                 type="email"

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import Heading from 'components/atoms/Heading/Heading';
-import PropTypes from 'prop-types';
 import Input from 'components/atoms/Input/Input';
 import Button from 'components/atoms/Button/Button';
 
@@ -18,12 +17,8 @@ const StyledWrapper = styled.div`
   -webkit-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
   -moz-box-shadow: 10px 9px 13px 0px rgba(203, 203, 203, 0.75);
 
-  @media (max-width: 1024px) {
-    width: 400px;
-  }
-
-  @media (max-width: 1700px) {
-    min-width: 350px;
+  @media (max-width: 1750px) {
+    height: 100%;
   }
 `;
 
@@ -72,7 +67,7 @@ const SemiCard = () => (
       <StyledInput placeholder="e-mail" />
       <StyledInput placeholder="password" />
       <StyledInput placeholder="re-type password" />
-      <StyledButton>Submit</StyledButton>
+      <StyledButton type="submit">Submit</StyledButton>
     </InnerWrapper>
   </StyledWrapper>
 );

@@ -8,7 +8,7 @@ import { routes } from 'routes';
 import AuthTemplate from 'templates/AuthTemplate';
 import { Formik, Form } from 'formik';
 import { useAuth } from 'context/AuthContext';
-import { StyledErrorMessage } from './RegisterPage';
+import Message from 'components/atoms/Message/Message';
 
 const StyledForm = styled(Form)`
   display: flex;
@@ -67,7 +67,7 @@ const LoginPage = () => {
         {({ handleChange, handleBlur }) => (
           <>
             <Heading>Log in!</Heading>
-            {error && <StyledErrorMessage>{error}</StyledErrorMessage>}
+            {error && <Message>{error}</Message>}
             <StyledForm onSubmit={handleSubmit}>
               <StyledInput
                 type="email"
