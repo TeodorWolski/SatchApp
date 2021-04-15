@@ -1,7 +1,8 @@
 import React from 'react';
-import UserTemplate from 'templates/UserTemplate';
 import styled from 'styled-components';
-import SemiCard from 'components/molecules/SemiCard/SemiCard';
+import UserTemplate from 'templates/UserTemplate';
+import UpdateEmailCard from 'components/molecules/SemiCard/UpdateEmailCard';
+import UpdatePasswordCard from 'components/molecules/SemiCard/UpdatePasswordCard';
 
 const StyledWrapper = styled.div`
   margin-top: 8%;
@@ -13,7 +14,8 @@ const StyledWrapper = styled.div`
 const Settings = () => (
   <UserTemplate pageType="settings">
     <StyledWrapper>
-      <SemiCard />
+      <UpdateEmailCard />
+      <UpdatePasswordCard />
     </StyledWrapper>
   </UserTemplate>
 );

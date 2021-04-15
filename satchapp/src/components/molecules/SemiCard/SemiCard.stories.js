@@ -1,5 +1,5 @@
 import React from 'react';
-import SemiCard from './SemiCard';
+import SemiCard from './UpdateEmailCard';
 
 export default {
   title: 'molecules/SemiCard',
