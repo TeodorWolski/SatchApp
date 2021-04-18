@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
 import { useAuth } from 'context/AuthContext';
+import Message from 'components/atoms/Message/Message';
 import {
   StyledWrapper,
   InnerWrapper,
@@ -11,10 +12,9 @@ import {
 } from './SemiCardStyles';
 
 const UpdatePasswordCard = () => {
-  const emailRef = useRef();
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
-  const { currentUser, updatePassword, updateEmail } = useAuth();
+  const { currentUser, updatePassword } = useAuth();
   const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,10 +23,16 @@ const UpdatePasswordCard = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const promises = [];
-
-    if (passwordRef.current.value === passwordConfirmRef.current.value) {
-      return promises.push(updateEmail(emailRef.current.value));
+    setLoading(true);
+    setError('');
+    if (
+      passwordRef.current.value === passwordConfirmRef.current.value &&
+      passwordRef.current.value !== currentUser.password
+    ) {
+      updatePassword(passwordRef.current.value);
+      setMessage('Password updated successfully');
+    } else {
+      setError('Failed to update password');
     }
 
     setLoading(false);
@@ -41,7 +47,9 @@ const UpdatePasswordCard = () => {
               <StyledHeading big>Update your password</StyledHeading>
             </InnerWrapper>
             <InnerWrapper flex>
-              <StyledForm>
+              <StyledForm onSubmit={handleSubmit}>
+                {error && <Message>{error}</Message>}
+                {message && <Message success>{message}</Message>}
                 <StyledInput
                   type="password"
                   placeholder="password"
@@ -58,7 +66,9 @@ const UpdatePasswordCard = () => {
                   ref={passwordConfirmRef}
                   required
                 />
-                <StyledButton type="submit">Submit</StyledButton>
+                <StyledButton disabled={loading} type="submit">
+                  Submit
+                </StyledButton>
               </StyledForm>
             </InnerWrapper>
           </>
