@@ -21,9 +21,19 @@ const StyledWrapper = styled.nav`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  top: 0;
   left: 0;
+
   padding: 25px 0;
+
+  @media (max-width: 415px) {
+    width: 100vh;
+    height: 10vh;
+    bottom: 0;
+    flex-direction: row;
+  }
+  @media (min-width: 415px) {
+    top: 0;
+  }
 `;
 
 const StyledList = styled.ul`
@@ -31,6 +41,10 @@ const StyledList = styled.ul`
   bottom: 5%;
   list-style: none;
   padding: 0;
+  @media (max-width: 415px) {
+    display: flex;
+    flex-direction: row;
+  }
   @media (max-width: 801px) {
     margin-top: 3vh;
   }
@@ -39,6 +53,12 @@ const StyledList = styled.ul`
 const StyledListItem = styled(ButtonIcon)`
   padding: 0 60px 60px 0;
   margin-top: 7vh;
+  @media (max-width: 415px) {
+    margin-top: 0;
+    height: 5px;
+    width: 5px;
+    background-size: 20%;
+  }
 `;
 
 const Sidebar = ({ pageType }) => {
@@ -75,14 +95,16 @@ const Sidebar = ({ pageType }) => {
         <StyledListItem>
           <ButtonIcon icon={forGeeks} as={NavLink} to="/forgeeks" activeclass="active" />
         </StyledListItem>
+        <StyledListItem>
+          <ButtonIcon icon={LogoutIcon} onClick={handleLogout} />
+        </StyledListItem>
       </StyledList>
-      <ButtonIcon icon={LogoutIcon} onClick={handleLogout} />
     </StyledWrapper>
   );
 };
 
 Sidebar.propTypes = {
-  pageType: PropTypes.oneOf(['home', 'saves', 'videos', 'geeks']).isRequired,
+  pageType: PropTypes.oneOf(['home', 'saves', 'videos', 'geeks', 'settings']).isRequired,
 };
 
 export default Sidebar;

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 const SocialMediaButton = styled.div`
-  position: relative;
   height: 70px;
   width: 70px;
   border-radius: 25px;

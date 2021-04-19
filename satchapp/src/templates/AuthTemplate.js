@@ -23,6 +23,10 @@ const StyledAuthCard = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 415px) {
+    width: 350px;
+  }
 `;
 
 const StyledHeading = styled(Heading)`
