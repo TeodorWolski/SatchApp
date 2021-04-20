@@ -21,7 +21,7 @@ const Root = () => (
       <AuthProvider>
         <MainTemplate>
           <Switch>
-            <PrivateRoute exact path={routes.load} />
+            <Route exact path={routes.load} render={() => <Redirect to={routes.login} />} />
             <Route path={routes.login} component={LoginPage} />
             <Route path={routes.register} component={RegisterPage} />
             <Route path={routes.forgotPassword} component={ForgotPasswordPage} />

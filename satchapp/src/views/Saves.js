@@ -12,8 +12,9 @@ import NewItemBar from 'components/organisms/NewItemBar/NewItemBar';
 const StyledGrid = styled.div`
   display: grid;
   grid-gap: 85px;
+  position: relative;
 
-  @media (min-width: 375px) {
+  @media (min-width: 350px) {
     grid-template-columns: 1fr;
     margin-left: 40px;
   }
@@ -30,6 +31,13 @@ const StyledGrid = styled.div`
 const StyledHeading = styled(Heading)`
   margin: 50px 0 50px 0;
 
+  @media (max-width: 415px) {
+    font-size: ${({ theme }) => theme.fontSize.l};
+    position: relative;
+    text-align: center;
+    padding-left: 75px;
+  }
+
   @media (max-width: 1024px) {
     text-align: center;
     margin-left: 50px;
@@ -39,18 +47,36 @@ const StyledHeading = styled(Heading)`
 const StyledWrapper = styled.div`
   position: relative;
   padding: 25px 150px 25px 70px;
+
+  @media (min-width: 350px) {
+    right: 90%;
+  }
 `;
 
 const StyledButtonIcon = styled(ButtonIcon)`
   position: fixed;
-  bottom: 40px;
-  right: 40px;
+
   background-color: ${({ theme }) => theme.saves};
   background-size: 35%;
   border-radius: 50px;
   z-index: 10000;
   transition: all 1s;
   transform: ${({ isVisible }) => (isVisible ? 'rotate(45deg)' : 'none')};
+
+  @media (min-width: 350px) {
+    right: 70px;
+    bottom: 90px;
+  }
+
+  @media (min-width: 405px) {
+    bottom: 90px;
+    right: 20px;
+  }
+
+  @media (min-width: 750px) {
+    bottom: 40px;
+    right: 40px;
+  }
 `;
 
 const Saves = ({ saves }) => {

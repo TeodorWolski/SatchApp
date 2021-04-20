@@ -15,7 +15,7 @@ const StyledWrapper = styled.div`
   width: 100%;
   margin: 0;
   padding: 0;
-  height: 97vh;
+
   border-radius: 10px;
   -webkit-box-shadow: 5px 5px 19px 5px rgba(0, 0, 0, 0.52);
   box-shadow: 5px 5px 19px 5px rgba(0, 0, 0, 0.52);
@@ -40,7 +40,7 @@ const StyledWrapper = styled.div`
   @media (min-width: 755px) {
     right: 0;
     width: 100%;
-    height: 97vh;
+    height: 100vh;
     top: 0;
   }
 `;
