@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import styled from 'styled-components';
 import { Formik } from 'formik';
 import { useAuth } from 'context/AuthContext';
 import Message from 'components/atoms/Message/Message';
@@ -10,6 +11,13 @@ import {
   StyledInput,
   StyledForm,
 } from './SemiCardStyles';
+
+const StyledButtonChange = styled(StyledButton)`
+  @media (min-width: 1300px) {
+    position: relative;
+    top: 0;
+  }
+`;
 
 const UpdatePasswordCard = () => {
   const passwordRef = useRef();
@@ -66,9 +74,9 @@ const UpdatePasswordCard = () => {
                   ref={passwordConfirmRef}
                   required
                 />
-                <StyledButton disabled={loading} type="submit">
+                <StyledButtonChange disabled={loading} type="submit">
                   Submit
-                </StyledButton>
+                </StyledButtonChange>
               </StyledForm>
             </InnerWrapper>
           </>

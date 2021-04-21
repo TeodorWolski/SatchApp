@@ -15,6 +15,7 @@ import SettingsIcon from 'assets/icons/settings.svg';
 const StyledWrapper = styled.nav`
   position: fixed;
   height: 100vh;
+  z-index: 1;
   width: 150px;
   background-color: ${({ theme, activeColor }) => theme[activeColor]};
   display: flex;
@@ -26,7 +27,7 @@ const StyledWrapper = styled.nav`
   padding: 25px 0;
 
   @media (max-width: 415px) {
-    width: 100vh;
+    width: 100%;
     height: 10vh;
     bottom: 0;
     flex-direction: row;
@@ -41,10 +42,21 @@ const StyledList = styled.ul`
   bottom: 5%;
   list-style: none;
   padding: 0;
-  @media (max-width: 415px) {
+
+  @media (min-width: 350px) {
     display: flex;
     flex-direction: row;
   }
+
+  @media (min-width: 370px) {
+    margin-left: 10px;
+  }
+
+  @media (min-width: 650px) {
+    flex-direction: column;
+    margin-left: 0px;
+  }
+
   @media (max-width: 801px) {
     margin-top: 3vh;
   }
@@ -53,11 +65,12 @@ const StyledList = styled.ul`
 const StyledListItem = styled(ButtonIcon)`
   padding: 0 60px 60px 0;
   margin-top: 7vh;
+
   @media (max-width: 415px) {
-    margin-top: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
     height: 5px;
     width: 5px;
-    background-size: 20%;
   }
 `;
 

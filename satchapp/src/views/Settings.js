@@ -10,6 +10,34 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  @media (min-width: 350px) {
+    width: 320px;
+    position: relative;
+    margin-top: 1px;
+    right: 57%;
+    margin-bottom: 40%;
+  }
+
+  @media (min-width: 370px) {
+    right: 50%;
+  }
+
+  @media (min-width: 400px) {
+    margin-left: 9%;
+    right: 43%;
+  }
+
+  @media (min-width: 650px) {
+    width: 500px;
+    left: 5%;
+  }
+
+  @media (min-width: 1200px) {
+    width: 70%;
+    justify-content: space-between;
+    margin: 10% 0 0 10%;
+  }
 `;
 
 const Settings = () => (

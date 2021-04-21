@@ -1,6 +1,5 @@
 import React, { useRef, useState } from 'react';
 import { Formik } from 'formik';
-import { useHistory } from 'react-router-dom';
 import { useAuth } from 'context/AuthContext';
 import Message from 'components/atoms/Message/Message';
 import {
