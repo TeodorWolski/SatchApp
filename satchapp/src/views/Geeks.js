@@ -14,7 +14,9 @@ const StyledGrid = styled.div`
   left: 37%;
 
   @media (min-width: 100px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 2fr);
+    left: 0;
+    top: 30%;
   }
 
   @media (min-width: 415px) {
@@ -40,6 +42,7 @@ const StyledHeading = styled(Heading)`
 
   @media (min-width: 100px) {
     margin-top: 15%;
+    right: 28%;
     text-align: center;
     font-size: 2.5rem;
   }
@@ -47,6 +50,7 @@ const StyledHeading = styled(Heading)`
   @media (min-width: 415px) {
     font-size: ${({ theme }) => theme.fontSize.xl};
     top: 50%;
+    right: 2%;
   }
 
   @media (min-width: 801px) {
