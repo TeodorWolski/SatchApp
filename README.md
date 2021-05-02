@@ -10,5 +10,6 @@ https://www.instagram.com/frontendjoe/
 
 !!!INFO!!!
 You can try this app but unfortunately I didn't plug in this app into database yet, so the data wonn't be saved. I will add integration with database in a few days, be patient :)
+!!!!!!!!!!!!!!!!FOR THIS MOMENT DESKTOP ONLY!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 try it on this adress: https://satchapp.netlify.app
